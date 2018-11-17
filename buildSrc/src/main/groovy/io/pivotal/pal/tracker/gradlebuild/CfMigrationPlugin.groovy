@@ -22,6 +22,7 @@ class CfMigrationPlugin implements Plugin<Project> {
                 task("openTunnel") {
                     doLast {
                         println "Opening Tunnel for $appName"
+                        println "Opening Tunnel for $databaseInstanceName"
                         Thread.start {
                             tunnelProcess = "cf ssh -N -L 63306:${getMysqlHost(appName, databaseInstanceName)}:3306 $appName".execute()
                         }
